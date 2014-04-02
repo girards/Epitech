@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Mon Mar 31 13:15:50 2014 Nicolas Girardot
+## Last update Wed Apr  2 12:51:32 2014 valeri
 ##
 
 CC	=	cc -g
@@ -16,7 +16,11 @@ SRC	=	assembleur/sources/asm.c \
 		assembleur/sources/basics.c \
 		assembleur/sources/get_next_line.c \
 		assembleur/sources/my_strncmp.c\
+		assembleur/sources/my_strcat.c			\
 		assembleur/sources/test_system.c\
+		assembleur/sources/list_d/my_put_in_list_first.c \
+		assembleur/sources/list_d/my_put_in_list_last.c\
+		assembleur/sources/list_d/my_show_list.c\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -27,7 +31,7 @@ NAME	=	./asm
 
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(FLAGS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 all:	$(NAME)
 
