@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:52:31 2014 mancel_a
-** Last update Wed Mar 26 18:53:32 2014 Nicolas Girardot
+** Last update Tue Apr  1 14:02:38 2014 valeri
 */
 
 #include <stdlib.h>
@@ -42,14 +42,14 @@ static char     *add_to_line(char *ligne, int cur, char *buff, int *start)
 char            *get_next_line(const int fd)
 {
   static char   buff[GNL_BUFF_SIZE + 1];
-  static int    in_buf = 0;
+  static int    in_buf = 1;
   static int    start;
   int           cur;
   char          *ligne;
 
   ligne = 0;
   cur = 0;
-  while (1)
+  while (in_buf != 0)
     {
       if (start >= in_buf)
         {
@@ -66,4 +66,5 @@ char            *get_next_line(const int fd)
         ligne = add_to_line(ligne, cur + 1, buff, &start);
       ++cur;
     }
+  return (NULL);
 }

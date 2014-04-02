@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:56:18 2014 mancel_a
-** Last update Wed Mar 26 16:59:44 2014 mancel_a
+** Last update Tue Apr  1 13:27:47 2014 valeri
 */
 
 #include <unistd.h>
@@ -15,8 +15,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "xfonc.h"
 
-void    *xmalloc(int size)
+void    *xmalloc(size_t size)
 {
   void  *ret;
 
@@ -68,7 +69,7 @@ void  *xmemset(void *b, int c, int len)
 {
   int           i;
   unsigned char *p;
-  
+
   p = b;
   i = 0;
   while (len > 0)
