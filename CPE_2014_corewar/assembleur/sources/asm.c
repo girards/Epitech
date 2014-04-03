@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
-** Last update Wed Apr  2 13:50:59 2014 valeri
+** Last update Wed Apr  2 16:54:20 2014 valeri
 */
 
 #include "../headers/asm.h"
@@ -36,38 +36,48 @@ int		is_comment(char *line)
   return (1);
 }
 
-void		fill_list(int fd, t_list **champ)
+t_champ		fill_champ(int fd, t_champ champ)
 {
+  t_champ	tmp;
   char		*line;
   char		*cmd;
 
-    cmd = malloc(4096);
-    
-  // xmemset(cmd);
-
+  cmd = malloc(4096);
   while ((line = get_next_line(fd)) != NULL)
     {
-      if (is_name(line) == 0 || is_comment(line) == 0)
-	my_put_in_list_last(champ, line);
+      printf("%s\n", line);
+      if (is_name(line) == 0)
+	{
+	  tmp.name = line;
+	}
+      else if (is_comment(line) == 0)
+	tmp.comment = line;
       else
 	{
 	  cmd = my_strcat(cmd, line);
 	  cmd = my_strcat(cmd, "\n");
 	}
     }
-  my_put_in_list_last(champ, cmd);
+  line = "wait";
+  tmp.command = cmd;
+  return (tmp);
 }
+
 int		main(int ac, char **av)
 {
-  // t_champ	champs[3];
   int		i;
   int		fd;
-  t_list	*champ1;
+  t_champ	champ[2];
+  int		j;
 
-  champ1 = malloc(sizeof(t_list));
-  champ1 = NULL;
+  j = 0;
+  //champ[0] = malloc(sizeof(t_champ));
+  //champ[1] = malloc(sizeof(t_champ));
   fd = xopen(av[1], O_RDONLY);
-  fill_list(fd, &champ1);
-  my_show_list(champ1);
-  free(champ1);
+  champ[0] = fill_champ(fd, champ[0]);
+  fd = xopen(av[2], O_RDONLY);
+  printf("%d\n", fd);
+  champ[1] = fill_champ(fd, champ[1]);
+  printf("%s ", champ[0].name);
+  printf("%s ", champ[1].name);
 }
