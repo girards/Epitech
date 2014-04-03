@@ -58,7 +58,6 @@ t_champ		fill_champ(int fd, t_champ champ)
 	  cmd = my_strcat(cmd, "\n");
 	}
     }
-  line = "wait";
   tmp.command = cmd;
   return (tmp);
 }
