@@ -6,10 +6,14 @@
 ** 
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
 <<<<<<< HEAD
+<<<<<<< HEAD
 ** Last update Fri Apr  4 15:58:12 2014 Nicolas Girardot
 =======
 ** Last update Fri Apr  4 14:22:01 2014 valeri
 >>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
+=======
+** Last update Fri Apr  4 14:55:48 2014 valeri
+>>>>>>> e819a970c1cad872f51150dcca173587b34279c9
 */
 
 #include "../headers/asm.h"
@@ -105,7 +109,11 @@ int		main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i]);
+<<<<<<< HEAD
       printf("%s\n %s\n %s\n", champ[i].name, champ[i].comment, champ[i].command);
       i++;
+=======
+     i++;
+>>>>>>> e819a970c1cad872f51150dcca173587b34279c9
     }
 }
