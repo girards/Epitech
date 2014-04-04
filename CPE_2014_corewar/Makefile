@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Fri Apr  4 13:42:54 2014 valeri
+## Last update Fri Apr  4 14:06:04 2014 valeri
 ##
 
 CC	=	cc -g
@@ -20,6 +20,7 @@ SRC	=	assembleur/sources/asm.c \
 		assembleur/sources/my_strcmp.c\
 		assembleur/sources/my_put_nbr.c\
 		assembleur/sources/my_strncmp.c\
+		assembleur/sources/verif.c\
 		assembleur/sources/my_strcat.c			\
 		assembleur/sources/xmalloc.c			\
 		assembleur/sources/test_system.c\
