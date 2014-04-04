@@ -5,7 +5,11 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
+<<<<<<< HEAD
 ** Last update Fri Apr  4 15:58:12 2014 Nicolas Girardot
+=======
+** Last update Fri Apr  4 14:22:01 2014 valeri
+>>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
 */
 
 #include "../headers/asm.h"
@@ -96,7 +100,7 @@ int		main(int ac, char **av)
   int		j;
 
   i = 1;
-  while (i != ac)
+  while (i != ac && is_champ(av[i]) == 0)
     {
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();

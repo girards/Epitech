@@ -5,7 +5,7 @@
 ** Login   <girard_s@epitech.net>
 ** 
 ** Started on  Thu Feb 27 15:17:04 2014 Nicolas Girardot
-** Last update Mon Mar 24 15:04:04 2014 Nicolas Girardot
+** Last update Fri Apr  4 14:34:04 2014 valeri
 */
 
 #include <stdlib.h>
@@ -19,7 +19,12 @@ int	is_champ(char *filename)
   if (filename[length] == 's' && filename[length - 1] == '.')
     return (0);
   else
-    return (-1);
+    {
+      my_putstr("Error with : ");
+      my_putstr(filename);
+      my_putchar('\n');
+      return (-1);
+    }
 }
 
 int	test_champs(char **av)
@@ -36,7 +41,7 @@ int	test_champs(char **av)
 	  my_putstr("File ");
 	  my_putstr(av[counter]);
 	  my_putstr(" not accessible\n");
-	  exit (-1);
+	  return (-1);
 	}
     }
 }
