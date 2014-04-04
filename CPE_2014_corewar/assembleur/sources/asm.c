@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
-** Last update Fri Apr  4 13:49:33 2014 valeri
+** Last update Fri Apr  4 13:59:22 2014 valeri
 */
 
 #include "../headers/asm.h"
@@ -34,7 +34,7 @@ int	check_content(t_champ champ)
 {
   if (strcmp("noname", champ.name) == 0)
     {
-      my_putstr("missing in champ.\n");
+      my_putstr("missing field in champ.\n");
       return (1);
     }
     return (0);
@@ -75,19 +75,17 @@ t_champ		fill_champ(int fd, t_champ champ)
   while ((line = get_next_line(fd)) != NULL)
     {
       if (is_name(line) == 0)
-	  tmp.name = line;
+	tmp.name = line;
       else if (is_comment(line) == 0)
 	tmp.comment = line;
       else
-	{
-	  cmd = cat_str(cmd, line);
-	  //cmd = my_strcat(cmd, line);
-	  //cmd = my_strcat(cmd, "\n");
-	}
+	cmd = cat_str(cmd, line);
     }
   tmp.command = cmd;
   if (check_content(tmp) == 0)
     return (tmp);
+  else
+    return (champ);
 }
 
 int		main(int ac, char **av)
@@ -97,8 +95,12 @@ int		main(int ac, char **av)
   t_champ	champ[4];
   int		j;
 
-  fd = xopen(av[1], O_RDONLY);
-  champ[0] = init_champ();
-  champ[0] = fill_champ(fd, champ[0]);
-  my_putstr(champ[0].command);
+  i = 1;
+  while (i != ac)
+    {
+      fd = xopen(av[i], O_RDONLY);
+      champ[0] = init_champ();
+      champ[0] = fill_champ(fd, champ[0]);
+      i++;
+    }
 }
