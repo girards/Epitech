@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:56:18 2014 mancel_a
-** Last update Tue Apr  1 13:27:47 2014 valeri
+** Last update Fri Apr  4 13:44:12 2014 valeri
 */
 
 #include <unistd.h>
@@ -16,19 +16,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "xfonc.h"
-
-void    *xmalloc(size_t size)
-{
-  void  *ret;
-
-  ret = malloc(size);
-  if (ret == NULL)
-    {
-      my_putstr("Malloc Error\n");
-      exit (1);
-    }
-  return (ret);
-}
 
 int     xopen(const char *pathname, int flags)
 {

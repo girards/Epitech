@@ -5,10 +5,11 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
-** Last update Wed Apr  2 16:54:20 2014 valeri
+** Last update Fri Apr  4 13:49:33 2014 valeri
 */
 
 #include "../headers/asm.h"
+#include "../headers/my.h"
 #include "../headers/library.h"
 #include "../headers/get_next_line.h"
 #include "list_d/list.h"
@@ -20,6 +21,25 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+t_champ	init_champ()
+{
+  t_champ tmp;
+  tmp.name = "noname";
+  tmp.comment = "nocomment";
+  tmp.command = "nocommand";
+  return(tmp);
+}
+
+int	check_content(t_champ champ)
+{
+  if (strcmp("noname", champ.name) == 0)
+    {
+      my_putstr("missing in champ.\n");
+      return (1);
+    }
+    return (0);
+}
+
 char	*my_strcat(char *dest, char *src);
 
 int		is_name(char *line)
@@ -27,6 +47,14 @@ int		is_name(char *line)
   if (my_strncmp(line, ".name", 5) == 0)
     return (0);
   return (1);
+}
+
+char		*cat_str(char *s1, char *s2)
+{
+  char		*result;
+  result = my_strcat(s1, s2);
+  result = my_strcat(result, "\n");
+  return (result);
 }
 
 int		is_comment(char *line)
@@ -42,41 +70,32 @@ t_champ		fill_champ(int fd, t_champ champ)
   char		*line;
   char		*cmd;
 
+  tmp = init_champ();
   cmd = malloc(4096);
   while ((line = get_next_line(fd)) != NULL)
     {
-      printf("%s\n", line);
       if (is_name(line) == 0)
-	{
-	  tmp.name = line;
-	}
+	tmp.name = line;
       else if (is_comment(line) == 0)
 	tmp.comment = line;
       else
-	{
-	  cmd = my_strcat(cmd, line);
-	  cmd = my_strcat(cmd, "\n");
-	}
+	cmd = cat_str(cmd, line);
     }
   tmp.command = cmd;
-  return (tmp);
+  if (check_content(tmp) == 0)
+    return (tmp);
 }
 
 int		main(int ac, char **av)
 {
   int		i;
   int		fd;
-  t_champ	champ[2];
+  t_champ	champ[4];
   int		j;
 
-  j = 0;
-  //champ[0] = malloc(sizeof(t_champ));
-  //champ[1] = malloc(sizeof(t_champ));
+  while (i != )
   fd = xopen(av[1], O_RDONLY);
+  champ[0] = init_champ();
   champ[0] = fill_champ(fd, champ[0]);
-  fd = xopen(av[2], O_RDONLY);
-  printf("%d\n", fd);
-  champ[1] = fill_champ(fd, champ[1]);
-  printf("%s ", champ[0].name);
-  printf("%s ", champ[1].name);
+  my_putstr(champ[0].command);
 }
