@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Mar 26 16:29:10 2014 mancel_a
-** Last update Sat Apr  5 23:09:50 2014 Valerian Polizzi
+** Last update Sat Apr  5 23:49:51 2014 Valerian Polizzi
 */
 
 #ifndef ASM_H_
@@ -18,5 +18,9 @@ typedef struct	s_champ
   char		*comment;
   char		*command;
 }		t_champ;
+
+int	go_lenght(char *line);
+char	*get_go(char *line, int lenght);
+t_champ parse(t_champ champs);
 
 #endif

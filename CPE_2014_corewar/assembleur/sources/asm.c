@@ -1,13 +1,13 @@
 /*
 ** asm.c for asm in /home/mancel_a/rendu/CPE_2014_corewar/assembleur/sources
-** 
+**
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-** 
+**
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Mon Apr  7 12:52:45 2014 valeri
+** Last update Sat Apr  5 23:49:11 2014 Valerian Polizzi
 =======
 ** Last update Fri Apr  4 14:22:01 2014 valeri
 >>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
@@ -103,6 +103,7 @@ t_champ		fill_champ(int fd, t_champ champ, char *file)
 	cmd = cat_str(cmd, line);
     }
   tmp.command = cmd;
+  tmp = parse(tmp);
   return (tmp);
 }
 

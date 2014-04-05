@@ -1,14 +1,15 @@
 /*
 ** parsing.c for parsing in /home/girard_s/rendu/Epitech/CPE_2014_corewar/assembleur/sources/parse
-** 
+**
 ** Made by Nicolas Girardot
 ** Login   <girard_s@epitech.net>
-** 
+**
 ** Started on  Wed Apr  2 13:57:36 2014 Nicolas Girardot
-** Last update Thu Apr  3 09:01:25 2014 Nicolas Girardot
+** Last update Sat Apr  5 23:49:04 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
+#include "../../headers/asm.h"
 
 int	go_length(char *line)
 {
@@ -43,16 +44,11 @@ char	*get_go(char *line, int length)
   return (final_name);
 }
 
-t_cmd	pars_cmd(char *cmd)
+t_champ		parse(t_champ champs)
 {
-  
-}
+  t_champ tmp;
 
-char 	*parse(t_champ champs)
-{
-  char *name;
-  char *comment;
-  
-  champs.name = get_go(champs.name, go_length(champs.name));
-  champs.comment = get_go(champs.comment, go_length(champs.comment));
+  tmp.name = get_go(champs.name, go_length(champs.name));
+  tmp.comment = get_go(champs.comment, go_length(champs.comment));
+  return (tmp);
 }
