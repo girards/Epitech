@@ -7,7 +7,7 @@
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Sat Apr  5 23:49:11 2014 Valerian Polizzi
+** Last update Sun Apr  6 00:06:14 2014 Valerian Polizzi
 =======
 ** Last update Fri Apr  4 14:22:01 2014 valeri
 >>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
@@ -28,6 +28,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
+void	show_champ(t_champ champ)
+{
+  printf("%s \n%s\n\n",champ.name, champ.comment);
+}
 
 t_champ	init_champ()
 {
@@ -121,6 +126,7 @@ int		main(int ac, char **av)
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i], av[i]);
       check_content(champ[i]);
-      i++;
+	show_champ(champ[i]);
+     i++;
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <girard_s@epitech.net>
 **
 ** Started on  Wed Apr  2 13:57:36 2014 Nicolas Girardot
-** Last update Sat Apr  5 23:49:04 2014 Valerian Polizzi
+** Last update Sat Apr  5 23:54:29 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
@@ -20,7 +20,7 @@ int	go_length(char *line)
   i = 0;
   while (line[i++] != '\"');
   temp = i;
-  while (line[i++] != '\n');
+  while (line[i++] != '\0');
   res = i - temp;
   return (res);
 }
