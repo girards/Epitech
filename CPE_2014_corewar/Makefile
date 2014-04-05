@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Fri Apr  4 16:02:15 2014 Nicolas Girardot
+## Last update Sat Apr  5 16:14:34 2014 Nicolas Girardot
 ## Last update Fri Apr  4 14:06:04 2014 valeri
 ##
 
@@ -28,7 +28,6 @@ SRC	=	assembleur/sources/asm.c \
 		assembleur/sources/list_d/my_put_in_list_first.c \
 		assembleur/sources/list_d/my_put_in_list_last.c\
 		assembleur/sources/list_d/my_show_list.c\
-		assembleur/sources/es_get_next_line.c\
 
 OBJ	=	$(SRC:.c=.o)
 

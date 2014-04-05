@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Fri Apr  4 15:17:25 2014 mancel_a
-** Last update Fri Apr  4 15:17:59 2014 mancel_a
+** Last update Sat Apr  5 16:13:29 2014 Nicolas Girardot
 */
 
 #include "../headers/asm.h"
@@ -72,7 +72,7 @@ t_champ		fill_champ(int fd, t_champ champ)
 
   tmp = init_champ();
   cmd = malloc(4096);
-  while ((line = eget_next_line(fd)) != NULL)
+  while ((line = get_next_line(fd)) != NULL)
     {
       if (is_name(line) == 0)
 	tmp.name = line;
@@ -101,8 +101,7 @@ int		main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i]);
-      printf("%s\n %s\n %s\n", champ[i].name, champ[i].comment, champ[i].command);
+      printf("%s\n%s\n%s\n", champ[i].name, champ[i].comment, champ[i].command);
       i++;
-     i++;
     }
 }

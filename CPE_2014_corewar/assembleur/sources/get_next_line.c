@@ -1,70 +1,66 @@
 /*
-** get_next_line.c for get_next_line in /home/mancel_a/rendu/CPE_2014_corewar/assembleur/sources
+** es_get_next_line.c for corewar in /home/girard_s/rendu/Epitech/CPE_2014_corewar/assembleur/sources
 ** 
-** Made by mancel_a
-** Login   <mancel_a@epitech.net>
+** Made by Nicolas Girardot
+** Login   <girard_s@epitech.net>
 ** 
-** Started on  Wed Mar 26 16:52:31 2014 mancel_a
-** Last update Tue Apr  1 14:02:38 2014 valeri
+** Started on  Sat Apr  5 16:12:49 2014 Nicolas Girardot
+** Last update Sat Apr  5 16:13:39 2014 Nicolas Girardot
 */
 
+#include <unistd.h>
 #include <stdlib.h>
-#include "../headers/get_next_line.h"
 
-char    *my_strncpy(char *d, char *s, int n)
+char*	add_data_chunk(char *data, int newsize)
 {
-  int   c;
+  char*rtn;
+  int	it;
 
-  c = -1;
-  while (s[++c] && c < n)
-    d[c] = s[c];
-  if (c == 0 || n == 0)
-    d[c] = 0;
-  return (d);
-}
-
-static char     *add_to_line(char *ligne, int cur, char *buff, int *start)
-{
-  char          *new_elem;
-  int           old_len;
-
-  old_len = (ligne) ? my_strlen(ligne) : 0;
-  new_elem = xmalloc((old_len + cur + 1) * sizeof(*new_elem));
-  my_strncpy(new_elem, ligne ? ligne : "", old_len);
-  my_strncpy(new_elem + old_len, buff + *start, cur);
-  new_elem[old_len + cur] = 0;
-  if (ligne)
-    free(ligne);
-  *start += cur + 1;
-  return (new_elem);
-}
-
-char            *get_next_line(const int fd)
-{
-  static char   buff[GNL_BUFF_SIZE + 1];
-  static int    in_buf = 1;
-  static int    start;
-  int           cur;
-  char          *ligne;
-
-  ligne = 0;
-  cur = 0;
-  while (in_buf != 0)
+  rtn = malloc(newsize);
+  if (rtn == NULL)
+    return (NULL);
+  it = 0;
+  while (it < newsize - 4096)
     {
-      if (start >= in_buf)
-        {
-          start = 0;
-          if (!(in_buf = read(fd, buff, GNL_BUFF_SIZE)))
-            return (ligne);
-          if (in_buf == -1)
-            exit (EXIT_FAILURE + 0 * write(2, "Impossible à lire\n", 20));
-          cur = 0;
-        }
-      if (buff[start + cur] == '\n')
-        return (ligne = add_to_line(ligne, cur, buff, &start));
-      if (start + cur == in_buf - 1)
-        ligne = add_to_line(ligne, cur + 1, buff, &start);
-      ++cur;
+      rtn[it] = data[it];
+      it++;
     }
-  return (NULL);
+  free(data);
+  return (rtn);
+}
+
+int	read_to_buf(const int fd, char *buf, int *it)
+{
+  *it = 0;
+  return (read(fd, buf, 4096));
+}
+
+char*	get_next_line(const int fd)
+{
+  static char	buf[4096];
+  static int	it = -1;
+  static int	bytes_read = 0;
+
+  char	*rtn;
+  int	rtn_it;
+
+  if (it == -1 || it == bytes_read)
+    bytes_read = read_to_buf(fd, buf, &it);
+  rtn = malloc(4096);
+  if (rtn == NULL || bytes_read == 0)
+    return (NULL);
+  rtn_it = 0;
+  while (bytes_read > 0 && buf[it] != '\n')
+    {
+      rtn[rtn_it] = buf[it];
+      it++;
+      rtn_it++;
+      if (rtn_it % 4096 == 0)
+	rtn = add_data_chunk(rtn, rtn_it + 1 + 4096);
+      if (it == bytes_read)
+	bytes_read = read_to_buf(fd, buf, &it);
+    }
+  rtn[rtn_it] = '\0';
+  it++;
+  return (rtn);
 }
