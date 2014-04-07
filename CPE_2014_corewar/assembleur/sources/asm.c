@@ -1,11 +1,19 @@
 /*
-** asm.c for asm in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/sources
+** asm.c for asm in /home/mancel_a/rendu/CPE_2014_corewar/assembleur/sources
 ** 
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
 ** 
-** Started on  Fri Apr  4 15:17:25 2014 mancel_a
-** Last update Sat Apr  5 16:13:29 2014 Nicolas Girardot
+** Started on  Wed Mar 26 16:34:51 2014 mancel_a
+<<<<<<< HEAD
+<<<<<<< HEAD
+** Last update Mon Apr  7 12:52:45 2014 valeri
+=======
+** Last update Fri Apr  4 14:22:01 2014 valeri
+>>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
+=======
+** Last update Fri Apr  4 14:55:48 2014 valeri
+>>>>>>> e819a970c1cad872f51150dcca173587b34279c9
 */
 
 #include "../headers/asm.h"
@@ -24,6 +32,8 @@
 t_champ	init_champ()
 {
   t_champ tmp;
+
+  tmp.filename = "filename";
   tmp.name = "noname";
   tmp.comment = "nocomment";
   tmp.command = "nocommand";
@@ -32,12 +42,22 @@ t_champ	init_champ()
 
 int	check_content(t_champ champ)
 {
+  int	errors;
+
+  errors = 0;
   if (strcmp("noname", champ.name) == 0)
     {
-      my_putstr("missing field in champ.\n");
-      return (1);
+      errors++;
+      printf("%s has no '.name' field\n", champ.filename);
     }
+  if (strcmp("nocomment", champ.comment) == 0)
+    {
+    errors++;
+    printf("%s has no '.command' field\n", champ.filename);
+    }
+  if (errors == 0)
     return (0);
+  return (1);
 }
 
 char	*my_strcat(char *dest, char *src);
@@ -64,13 +84,14 @@ int		is_comment(char *line)
   return (1);
 }
 
-t_champ		fill_champ(int fd, t_champ champ)
+t_champ		fill_champ(int fd, t_champ champ, char *file)
 {
   t_champ	tmp;
   char		*line;
   char		*cmd;
 
   tmp = init_champ();
+  tmp.filename = file;
   cmd = malloc(4096);
   while ((line = get_next_line(fd)) != NULL)
     {
@@ -82,10 +103,7 @@ t_champ		fill_champ(int fd, t_champ champ)
 	cmd = cat_str(cmd, line);
     }
   tmp.command = cmd;
-  if (check_content(tmp) == 0)
-    return (tmp);
-  else
-    return (champ);
+  return (tmp);
 }
 
 int		main(int ac, char **av)
@@ -100,8 +118,8 @@ int		main(int ac, char **av)
     {
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
-      champ[i] = fill_champ(fd, champ[i]);
-      printf("%s\n%s\n%s\n", champ[i].name, champ[i].comment, champ[i].command);
+      champ[i] = fill_champ(fd, champ[i], av[i]);
+      check_content(champ[i]);
       i++;
     }
 }
