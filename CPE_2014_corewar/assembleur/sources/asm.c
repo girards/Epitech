@@ -7,7 +7,7 @@
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Sun Apr  6 00:06:14 2014 Valerian Polizzi
+** Last update Sun Apr  6 00:18:42 2014 Valerian Polizzi
 =======
 ** Last update Fri Apr  4 14:22:01 2014 valeri
 >>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
@@ -31,7 +31,7 @@
 
 void	show_champ(t_champ champ)
 {
-  printf("%s \n%s\n\n",champ.name, champ.comment);
+  printf("%s \n%s\n%s\n\n",champ.name, champ.comment, champ.command);
 }
 
 t_champ	init_champ()
@@ -108,8 +108,12 @@ t_champ		fill_champ(int fd, t_champ champ, char *file)
 	cmd = cat_str(cmd, line);
     }
   tmp.command = cmd;
-  tmp = parse(tmp);
-  return (tmp);
+  if (check_content(tmp) == 0)
+    {
+      tmp = parse(tmp);
+      show_champ(tmp);
+    }
+      return (tmp);
 }
 
 int		main(int ac, char **av)
@@ -125,8 +129,6 @@ int		main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i], av[i]);
-      check_content(champ[i]);
-	show_champ(champ[i]);
      i++;
     }
 }

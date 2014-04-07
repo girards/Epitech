@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Sat Apr  5 23:26:38 2014 Valerian Polizzi
+## Last update Mon Apr  7 17:16:21 2014 Valerian Polizzi
 ## Last update Fri Apr  4 14:06:04 2014 valeri
 ##
 
@@ -28,7 +28,6 @@ SRC	=	assembleur/sources/asm.c \
 		assembleur/sources/test_system.c\
 		assembleur/sources/list_d/my_put_in_list_first.c \
 		assembleur/sources/list_d/my_put_in_list_last.c\
-		assembleur/sources/list_d/my_show_list.c\
 
 OBJ	=	$(SRC:.c=.o)
 
