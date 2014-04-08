@@ -5,15 +5,15 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Mar 26 16:29:10 2014 mancel_a
-** Last update Sun Apr  6 01:14:52 2014 Valerian Polizzi
+** Last update Tue Apr  8 18:02:01 2014 Valerian Polizzi
 */
 
 #ifndef ASM_H_
 # define ASM_H_
 
-typedef struct	s_cmd
+typedef strucyyt	s_cmd
 {
-  char		*instruct;
+  char		*instruction;
   char		**param;
 }		t_cmd;
 

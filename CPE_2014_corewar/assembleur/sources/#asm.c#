@@ -93,8 +93,25 @@ int		is_comment(char *line)
 
 int		is_label(char *line)
 {
-
+  if (line[my_strlen(line) - 2) == ':')
+    return (0);
+  return (1);
 }
+
+int		is_arg(char *line)
+{
+  if (line[my_strlen(line) - 2) == ':')
+    return (0);
+  return (1);
+}
+
+int		is_inst(char *line)
+{
+  if (line[my_strlen(line) - 2) == ':')
+    return (0);
+  return (1);
+}
+
 
 int		is_separator(char c)
 {
@@ -108,7 +125,6 @@ void		get_next_word(char *line)
   char		**word_tab;
   int		i;
   int		j;
-
 
   j = 0;
   i = 0;
@@ -131,8 +147,6 @@ void		get_next_word(char *line)
     }
 }
 //while ((is_separator(line[j++]) == 0));
-
-
 
 void		fill_cmd(t_cmd *cmd_list, char *line)
 {

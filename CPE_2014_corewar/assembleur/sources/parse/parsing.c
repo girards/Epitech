@@ -5,7 +5,7 @@
 ** Login   <girard_s@epitech.net>
 **
 ** Started on  Wed Apr  2 13:57:36 2014 Nicolas Girardot
-** Last update Sun Apr  6 00:19:53 2014 Valerian Polizzi
+** Last update Tue Apr  8 16:27:02 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
@@ -43,6 +43,15 @@ char	*get_go(char *line, int length)
   final_name[++i - tmp] = '\0';
   return (final_name);
 }
+
+t_cmd		parse_cmd(char *cmd_line)
+{
+  t_cmd		tmp;
+  int		i;
+
+  return (tmp);
+}
+
 
 t_champ		parse(t_champ champs)
 {
