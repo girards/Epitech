@@ -5,7 +5,11 @@
 ** Login   <girard_s@epitech.net>
 **
 ** Started on  Wed Apr  2 13:57:36 2014 Nicolas Girardot
+<<<<<<< HEAD:CPE_2014_corewar/assembleur/sources/parsing.c
 ** Last update Wed Apr  9 14:25:49 2014 mancel_a
+=======
+** Last update Wed Apr  9 12:36:09 2014 Valerian Polizzi
+>>>>>>> 538eece759a60e7997564436b9a7a109fe821652:CPE_2014_corewar/assembleur/sources/parse/parsing.c
 */
 
 #include <stdlib.h>
@@ -44,6 +48,15 @@ char	*get_go(char *line, int length)
   return (final_name);
 }
 
+t_cmd		parse_cmd(char *cmd_line)
+{
+  t_cmd		tmp;
+  int		i;
+
+  return (tmp);
+}
+
+
 t_champ		parse(t_champ champs)
 {
   t_champ tmp;
@@ -51,5 +64,6 @@ t_champ		parse(t_champ champs)
   tmp.name = get_go(champs.name, go_length(champs.name));
   tmp.comment = get_go(champs.comment, go_length(champs.comment));
   tmp.command = champs.command;
+  tmp.filename = champs.filename;
   return (tmp);
 }

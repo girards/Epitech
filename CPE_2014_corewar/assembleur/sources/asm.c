@@ -4,8 +4,8 @@
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
 ** 
-** Started on  Wed Apr  9 14:01:02 2014 mancel_a
-** Last update Wed Apr  9 15:00:33 2014 mancel_a
+** Started on  Wed Apr  9 15:16:45 2014 mancel_a
+** Last update Wed Apr  9 15:24:48 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -20,6 +20,8 @@
 #include "../headers/get_next_line.h"
 #include "../headers/list.h"
 
+t_cmd		parse_cmd(char *cmd);
+
 t_champ		init_champ()
 {
   t_champ	tmp;
@@ -30,6 +32,8 @@ t_champ		init_champ()
   tmp.command = "nocommand";
   return(tmp);
 }
+
+char	*my_strcat(char *dest, char *src);
 
 int		is_name(char *line)
 {
@@ -52,3 +56,11 @@ int		is_comment(char *line)
     return (0);
   return (1);
 }
+
+int		is_separator(char c)
+{
+  if (c == ' ' || c == '\t' || c == ',' || c == '\0')
+    return (0);
+  return (1);
+}
+

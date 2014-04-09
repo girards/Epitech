@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Wed Apr  9 15:01:20 2014 mancel_a
+** Last update Wed Apr  9 15:24:01 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -40,14 +40,47 @@ int     check_content(t_champ champ)
   return (1);
 }
 
-t_champ         fill_champ(int fd, t_champ champ, char *file)
+char            *get_next_word(char *line)
+{
+  int           i;
+  int           j;
+  int           x;
+  char          *elem;
+
+  x = 0;
+  j = 0;
+  i = 0;
+  elem = malloc(1080);
+  while (line[i] != '\0')
+    {
+      while ((is_separator(line[i]) == 0))
+        {
+          i++;
+          j++;
+        }
+      while ((is_separator(line[i]) == 1))
+        while (j != i + 1)
+          {
+            elem[x] = line[j];
+            x++;
+            j++;
+            i++;
+          }
+      x = 0;
+      return (elem);
+    }
+}
+
+t_champ         fill_champ(int fd, t_champ champ, char *filename)
 {
   t_champ       tmp;
   char          *line;
   char          *cmd;
+  t_cmd         *cmd_list;
+  int           i;
 
+  i = 0;
   tmp = init_champ();
-  tmp.filename = file;
   cmd = malloc(4096);
   while ((line = get_next_line(fd)) != NULL)
     {
@@ -56,11 +89,16 @@ t_champ         fill_champ(int fd, t_champ champ, char *file)
       else if (is_comment(line) == 0)
         tmp.comment = line;
       else
-        cmd = cat_str(cmd, line);
+        {
+          if (i == 0)
+            i++;
+          else
+            my_putstr(get_next_word(line));
+        }
     }
   tmp.command = cmd;
-  if (check_content(tmp) == 0)
-    tmp = parse(tmp);
+  tmp = parse(tmp);
+  tmp.filename = filename;
   return (tmp);
 }
 
