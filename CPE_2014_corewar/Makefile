@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Mon Apr  7 17:16:21 2014 Valerian Polizzi
+## Last update Wed Apr  9 14:55:08 2014 mancel_a
 ## Last update Fri Apr  4 14:06:04 2014 valeri
 ##
 
@@ -14,17 +14,14 @@ CC	=	cc -g
 RM	=	rm -f
 
 SRC	=	assembleur/sources/asm.c \
+		assembleur/sources/main.c \
 		assembleur/sources/basics.c \
+		assembleur/sources/my.c	\
 		assembleur/sources/get_next_line.c \
 		assembleur/sources/my_printf.c\
 		assembleur/sources/my_printf_func.c\
-		assembleur/sources/my_strcmp.c\
-		assembleur/sources/my_put_nbr.c\
-		assembleur/sources/my_strncmp.c\
 		assembleur/sources/verif.c\
-		assembleur/sources/my_strcat.c			\
-		assembleur/sources/xmalloc.c			\
-		assembleur/sources/parse/parsing.c\
+		assembleur/sources/parsing.c\
 		assembleur/sources/test_system.c\
 		assembleur/sources/list_d/my_put_in_list_first.c \
 		assembleur/sources/list_d/my_put_in_list_last.c\

@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Mar 26 16:56:18 2014 mancel_a
-** Last update Fri Apr  4 14:48:35 2014 valeri
+** Last update Wed Apr  9 14:49:23 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -15,7 +15,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "xfonc.h"
+#include "../headers/xfonc.h"
 
 int     xopen(const char *pathname, int flags)
 {

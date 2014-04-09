@@ -5,12 +5,12 @@
 ** Login   <valer@epitech.net>
 **
 ** Started on  Sat Mar 29 17:47:29 2014 Valerian Polizzi
-** Last update Fri Apr  4 13:45:47 2014 valeri
+** Last update Wed Apr  9 14:24:52 2014 mancel_a
 */
 
 #include	<stdlib.h>
 #include	<stdarg.h>
-#include	"my_printf.h"
+#include	"../headers/my_printf.h"
 #include	"../headers/my.h"
 
 int		str(va_list list);
@@ -18,7 +18,6 @@ int		nbr(va_list list);
 
 flag		*tab_func(flag *tab_func)
 {
-  //  tab_func = xmalloc(sizeof(flag) * 3);
   tab_func[0] = str;
   tab_func[1] = nbr;
   return (tab_func);
@@ -26,7 +25,6 @@ flag		*tab_func(flag *tab_func)
 
 char		*tab(char *tab)
 {
-  //tab = xmalloc(sizeof(flag) * 2);
   tab[0] = 's';
   tab[1] = 'd';
   return (tab);

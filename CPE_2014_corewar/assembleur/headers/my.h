@@ -5,7 +5,7 @@
 ** Login   <polizz_v@epitech.net>
 **
 ** Started on  Thu Mar 27 17:42:48 2014 valeri
-** Last update Mon Mar 31 17:16:59 2014 valeri
+** Last update Wed Apr  9 15:04:26 2014 mancel_a
 */
 
 #ifndef MY_H_
@@ -15,6 +15,7 @@
 
 typedef	int (*flag)(va_list list);
 
+char	*my_strcat(char *src, char *dest);
 void	my_putchar(char c);
 void	my_putstr(char *str);
 int	my_strlen(char *str);

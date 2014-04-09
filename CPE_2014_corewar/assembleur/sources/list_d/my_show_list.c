@@ -5,11 +5,11 @@
 ** Login   <polizz_v@epitech.net>
 ** 
 ** Started on  Mon Mar 31 15:02:47 2014 valeri
-** Last update Tue Apr  1 14:57:31 2014 valeri
+** Last update Wed Apr  9 14:18:53 2014 mancel_a
 */
 
 #include <stdlib.h>
-#include "list.h"
+#include "../../headers/list.h"
 #include "../../headers/asm.h"
 
 int		my_show_list(t_list *list)

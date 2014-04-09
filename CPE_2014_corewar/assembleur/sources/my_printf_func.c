@@ -5,11 +5,11 @@
 ** Login   <valer@epitech.net>
 **
 ** Started on  Sat Mar 29 18:09:44 2014 Valerian Polizzi
-** Last update Fri Apr  4 13:34:56 2014 valeri
+** Last update Wed Apr  9 14:25:17 2014 mancel_a
 */
 
 #include <stdarg.h>
-#include "my_printf.h"
+#include "../headers/my_printf.h"
 #include "../headers/my.h"
 
 int	nbr(va_list list)

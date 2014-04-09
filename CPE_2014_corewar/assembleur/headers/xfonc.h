@@ -5,16 +5,16 @@
 ** Login   <polizz_v@epitech.net>
 ** 
 ** Started on  Sun Feb 16 16:12:39 2014 valeri
-** Last update Mon Mar 31 17:17:30 2014 valeri
+** Last update Tue Apr  1 13:32:06 2014 valeri
 */
+
+#include <unistd.h>
 
 #ifndef XFONC_H_
 # define XFONC_H_
 
-#include <unistd.h>
-
-void	*xmalloc(int size);
-int	xread(int fd, char *buff, int size);
+void	*xmalloc(size_t size);
+int	xread(int fd, void *buffer, int buffsize);
 int	xusleep(useconds_t usec);
 
 #endif

@@ -1,15 +1,16 @@
 /*
-** es_get_next_line.c for corewar in /home/girard_s/rendu/Epitech/CPE_2014_corewar/assembleur/sources
+** get_next_line.c for asm in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/sources
 ** 
-** Made by Nicolas Girardot
-** Login   <girard_s@epitech.net>
+** Made by mancel_a
+** Login   <mancel_a@epitech.net>
 ** 
-** Started on  Sat Apr  5 16:12:49 2014 Nicolas Girardot
-** Last update Sat Apr  5 16:13:39 2014 Nicolas Girardot
+** Started on  Wed Apr  9 14:22:46 2014 mancel_a
+** Last update Wed Apr  9 14:23:18 2014 mancel_a
 */
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "../headers/get_next_line.h"
 
 char*	add_data_chunk(char *data, int newsize)
 {
@@ -40,10 +41,10 @@ char*	get_next_line(const int fd)
   static char	buf[4096];
   static int	it = -1;
   static int	bytes_read = 0;
-
+  
   char	*rtn;
   int	rtn_it;
-
+  
   if (it == -1 || it == bytes_read)
     bytes_read = read_to_buf(fd, buf, &it);
   rtn = malloc(4096);

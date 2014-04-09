@@ -5,14 +5,14 @@
 ** Login   <polizz_v@epitech.net>
 **
 ** Started on  Mon Mar 31 14:50:32 2014 valeri
-** Last update Mon Apr  7 17:14:36 2014 Valerian Polizzi
+** Last update Wed Apr  9 14:46:10 2014 mancel_a
 */
 
 #ifndef LIST_H_
 # define LIST_H_
 
 #include <stdlib.h>
-#include "../../headers/asm.h"
+#include "asm.h"
 
 typedef struct		s_list
 {

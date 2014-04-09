@@ -5,11 +5,11 @@
 ** Login   <girard_s@epitech.net>
 **
 ** Started on  Wed Apr  2 13:57:36 2014 Nicolas Girardot
-** Last update Sun Apr  6 00:19:53 2014 Valerian Polizzi
+** Last update Wed Apr  9 14:25:49 2014 mancel_a
 */
 
 #include <stdlib.h>
-#include "../../headers/asm.h"
+#include "../headers/asm.h"
 
 int	go_length(char *line)
 {
