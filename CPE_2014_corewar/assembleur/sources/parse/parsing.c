@@ -5,7 +5,7 @@
 ** Login   <girard_s@epitech.net>
 **
 ** Started on  Wed Apr  2 13:57:36 2014 Nicolas Girardot
-** Last update Tue Apr  8 16:27:02 2014 Valerian Polizzi
+** Last update Wed Apr  9 12:36:09 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
@@ -60,5 +60,6 @@ t_champ		parse(t_champ champs)
   tmp.name = get_go(champs.name, go_length(champs.name));
   tmp.comment = get_go(champs.comment, go_length(champs.comment));
   tmp.command = champs.command;
+  tmp.filename = champs.filename;
   return (tmp);
 }

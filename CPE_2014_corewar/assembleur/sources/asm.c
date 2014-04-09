@@ -7,7 +7,7 @@
 ** Started on  Wed Mar 26 16:34:51 2014 mancel_a
 <<<<<<< HEAD
 <<<<<<< HEAD
-** Last update Tue Apr  8 17:17:07 2014 Valerian Polizzi
+** Last update Wed Apr  9 14:19:44 2014 Valerian Polizzi
 =======
 ** Last update Fri Apr  4 14:22:01 2014 valeri
 >>>>>>> 4ed478582128bb6388edf55bb999a4f10c3f6115
@@ -60,7 +60,7 @@ int	check_content(t_champ champ)
   if (strcmp("nocomment", champ.comment) == 0)
     {
     errors++;
-    printf("%s has no '.command' field\n", champ.filename);
+    printf("%s has no '.comment' field\n", champ.filename);
     }
   if (errors == 0)
     return (0);
@@ -91,11 +91,6 @@ int		is_comment(char *line)
   return (1);
 }
 
-int		is_label(char *line)
-{
-
-}
-
 int		is_separator(char c)
 {
   if (c == ' ' || c == '\t' || c == ',' || c == '\0')
@@ -103,17 +98,17 @@ int		is_separator(char c)
   return (1);
 }
 
-void		get_next_word(char *line)
+char		*get_next_word(char *line)
 {
-  char		**word_tab;
   int		i;
   int		j;
+  int		x;
+  char		*elem;
 
-
+  x = 0;
   j = 0;
   i = 0;
-  printf("%d\n", i);
-
+  elem = malloc(1080);
   while (line[i] != '\0')
     {
       while ((is_separator(line[i]) == 0))
@@ -122,24 +117,16 @@ void		get_next_word(char *line)
 	  j++;
 	}
       while ((is_separator(line[i]) == 1))
-	{
-	  while (j != i + 1)
-	    my_putchar(line[j++]);
-	  i++;
-	}
-      my_putchar(' ');
+	while (j != i + 1)
+	  {
+	    elem[x] = line[j];
+	    x++;
+	    j++;
+	    i++;
+	  }
+      x = 0;
+      return (elem);
     }
-}
-//while ((is_separator(line[j++]) == 0));
-
-
-
-void		fill_cmd(t_cmd *cmd_list, char *line)
-{
-  int		i;
-
-  i = 0;
-
 }
 
 t_champ		fill_champ(int fd, t_champ champ, char *filename)
@@ -148,11 +135,10 @@ t_champ		fill_champ(int fd, t_champ champ, char *filename)
   char		*line;
   char		*cmd;
   t_cmd		*cmd_list;
-  int	i;
+  int		i;
 
   i = 0;
   tmp = init_champ();
-  tmp.filename = filename;
   cmd = malloc(4096);
   while ((line = get_next_line(fd)) != NULL)
     {
@@ -165,18 +151,13 @@ t_champ		fill_champ(int fd, t_champ champ, char *filename)
 	  if (i == 0)
 	    i++;
 	  else
-	    get_next_word(line);
+	    my_putstr(get_next_word(line));
 	}
     }
-  tmp.command = cmd;
-  if (check_content(tmp) == 0)
-    {
-      tmp = parse(tmp);
-
-      //  while ((line = get_next_line(
-      //tmp.cmd = parse_cmd(tmp.command);
-    }
-      return (tmp);
+    tmp.command = cmd;
+    tmp = parse(tmp);
+    tmp.filename = filename;
+    return (tmp);
 }
 
 int		main(int ac, char **av)
