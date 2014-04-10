@@ -1,11 +1,11 @@
 /*
 ** main.c for main in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/sources
-** 
+**
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-** 
+**
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Thu Apr 10 15:35:00 2014 mancel_a
+** Last update Thu Apr 10 16:26:41 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -23,7 +23,7 @@
 int     check_content(t_champ champ)
 {
   int   errors;
- 
+
   errors = 0;
   if (strcmp("noname", champ.name) == 0)
     {
@@ -33,7 +33,7 @@ int     check_content(t_champ champ)
   if (strcmp("nocomment", champ.comment) == 0)
     {
       errors++;
-      printf("%s has no '.command' field\n", champ.filename);
+      printf("%s has no '.comment' field\n", champ.filename);
     }
   if (errors == 0)
     return (0);
@@ -57,18 +57,33 @@ char            *get_next_word(char *line)
         {
           i++;
           j++;
+	   elem[x] = ' ';
+	  x++;
         }
       while ((is_separator(line[i]) == 1))
-        while (j != i + 1)
-          {
-            elem[x] = line[j];
-            x++;
-            j++;
-            i++;
-          }
-      x = 0;
-      return (elem);
+	{
+	  while (j != i + 1)
+	    {
+	      if (line[j] == '\n')
+		j++;
+	      else
+		{
+		  elem[x] = line[j];
+		  j++;
+		  x++;
+		}
+	      if (is_separator(line[i - 1]) == 0)
+		{
+		  elem[x] = ' ';
+		  i++;
+		}
+	    }
+	  elem[x] = ' ';
+	  //x++;
+	  i++;
+	}
     }
+  return (elem);
 }
 
 t_champ         fill_champ(int fd, t_champ champ, char *filename)
@@ -93,9 +108,10 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
           if (i == 0)
             i++;
           else
-            my_putstr(get_next_word(line));
+	    cmd = cat_str(cmd, get_next_word(line));
         }
     }
+  my_putstr(cmd);
   tmp.command = cmd;
   tmp = parse(tmp);
   tmp.filename = filename;
