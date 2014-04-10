@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Thu Apr 10 16:57:52 2014 Valerian Polizzi
+** Last update Thu Apr 10 18:19:05 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -20,22 +20,30 @@
 #include "../headers/get_next_line.h"
 #include "../headers/list.h"
 
-int     check_content(t_champ champ)
-{
-  int   errors;
 
-  errors = 0;
+int	check_name(t_champ champ)
+{
   if (strcmp("noname", champ.name) == 0)
     {
-      errors++;
       printf("%s has no '.name' field\n", champ.filename);
+      return (1);
     }
+  return (0);
+}
+
+int	check_comment(t_champ champ)
+{
   if (strcmp("nocomment", champ.comment) == 0)
     {
-      errors++;
       printf("%s has no '.comment' field\n", champ.filename);
+      return (1);
     }
-  if (errors == 0)
+  return (0);
+}
+
+int     check_content(t_champ champ)
+{
+  if (check_name(champ) == 0 || check_comment(champ) == 0)
     return (0);
   return (1);
 }
@@ -57,7 +65,7 @@ char            *get_next_word(char *line)
         {
           i++;
           j++;
-	   elem[x] = ' ';
+	  elem[x] = ' ';
 	  x++;
         }
       while ((is_separator(line[i]) == 1))
@@ -79,7 +87,6 @@ char            *get_next_word(char *line)
 		}
 	    }
 	  elem[x] = ' ';
-	  //x++;
 	  i++;
 	}
     }
@@ -113,8 +120,9 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
     }
   tmp.command = cmd;
   tmp = parse(tmp);
-  tmp.filename = filename;
-  return (tmp);
+  if (check_content(tmp) == 0)
+    return (tmp);
+  return (init_champ(tmp));
 }
 
 int             main(int ac, char **av)
@@ -130,7 +138,12 @@ int             main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i], av[i]);
-      my_putstr(champ[i].command);
-      i++;
+      champ[i].filename = av[i];
+      if (check_content(champ[i]) == 1)
+	{
+	  printf("PROGRAM ABORDED");
+	  return (1);
+	}
+	  i++;
     }
 }

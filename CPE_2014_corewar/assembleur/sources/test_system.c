@@ -1,11 +1,11 @@
 /*
 ** test_system.c for corewar in /home/mancel_a/rendu/CPE_2014_corewar/assembleur/sources
-** 
+**
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-** 
+**
 ** Started on  Wed Mar 26 16:56:18 2014 mancel_a
-** Last update Wed Apr  9 14:49:23 2014 mancel_a
+** Last update Thu Apr 10 18:16:14 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -52,18 +52,15 @@ void    xclose(int fd)
     }
 }
 
-void  *xmemset(void *b, int c, int len)
+void  *xmemset(char *str)
 {
   int           i;
-  unsigned char *p;
 
-  p = b;
   i = 0;
-  while (len > 0)
+  while (i != my_strlen(str))
     {
-      *p = c;
-      p++;
-      len--;
+      str[i] = '\0';
+      i++;
     }
-  return (b);
+  return (str);
 }

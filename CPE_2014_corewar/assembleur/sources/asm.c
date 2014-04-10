@@ -6,7 +6,7 @@
 **
 ** Started on  Wed Apr  9 15:16:45 2014 mancel_a
 <<<<<<< HEAD
-** Last update Thu Apr 10 15:47:33 2014 Valerian Polizzi
+** Last update Thu Apr 10 18:18:25 2014 Valerian Polizzi
 =======
 ** Last update Thu Apr 10 15:58:39 2014 mancel_a
 >>>>>>> 1d60c20ce812f528bb4c6fb7cf16427abfe86a0b
@@ -29,7 +29,7 @@ t_champ		init_champ()
 {
   t_champ	tmp;
 
-  tmp.filename = "filename";
+  tmp.filename = "\0";
   tmp.name = "noname";
   tmp.comment = "nocomment";
   tmp.command = "nocommand";
