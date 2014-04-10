@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Apr  9 15:16:45 2014 mancel_a
-** Last update Thu Apr 10 15:25:38 2014 mancel_a
+** Last update Thu Apr 10 15:58:39 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -21,11 +21,10 @@
 #include "../headers/list.h"
 
 t_cmd		parse_cmd(char *cmd);
-
 t_champ		init_champ()
 {
   t_champ	tmp;
-  
+
   tmp.filename = "filename";
   tmp.name = "noname";
   tmp.comment = "nocomment";

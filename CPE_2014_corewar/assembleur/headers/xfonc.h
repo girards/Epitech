@@ -1,11 +1,11 @@
 /*
-** xfonc.h for xfonc in /home/polizz_v/rendu/Allum1
+** xfonc.h for xfonc in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/headers
 ** 
-** Made by valeri
-** Login   <polizz_v@epitech.net>
+** Made by mancel_a
+** Login   <mancel_a@epitech.net>
 ** 
-** Started on  Sun Feb 16 16:12:39 2014 valeri
-** Last update Tue Apr  1 13:32:06 2014 valeri
+** Started on  Thu Apr 10 15:57:38 2014 mancel_a
+** Last update Thu Apr 10 15:57:41 2014 mancel_a
 */
 
 #include <unistd.h>
