@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Thu Apr 10 16:42:45 2014 Valerian Polizzi
+** Last update Thu Apr 10 16:57:52 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -91,12 +91,11 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
   t_champ       tmp;
   char          *line;
   char          *cmd;
-  t_cmd         *cmd_list;
   int           i;
 
   i = 0;
-  tmp = init_champ();
   cmd = malloc(4096);
+  tmp = init_champ();
   while ((line = get_next_line(fd)) != NULL)
     {
       if (is_name(line) == 0)
@@ -105,6 +104,7 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
         tmp.comment = line;
       else
         {
+	  cmd = realloc(cmd, 4096);
           if (i == 0)
             i++;
           else
@@ -130,7 +130,7 @@ int             main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i], av[i]);
-      printf("%s ", champ[i].command);
- i++;
+      my_putstr(champ[i].command);
+      i++;
     }
 }
