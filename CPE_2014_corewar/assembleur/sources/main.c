@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Fri Apr 11 00:37:52 2014 Valerian Polizzi
+** Last update Fri Apr 11 00:51:40 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -43,7 +43,7 @@ int	check_comment(t_champ champ)
 
 int     check_content(t_champ champ)
 {
-  if (check_name(champ) == 0 || check_comment(champ) == 0)
+  if (check_name(champ) == 0 && check_comment(champ) == 0)
     return (0);
   return (1);
 }
@@ -128,6 +128,16 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
   return (tmp);
 }
 
+int		check_champ(t_champ champ)
+{
+  if (champ.error == 1)
+    {
+      my_putstr("Error, program aborded\n");
+      return (1);
+    }
+  return (0);
+}
+
 int             main(int ac, char **av)
 {
   int           i;
@@ -141,12 +151,8 @@ int             main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ(av[i]);
       champ[i] = fill_champ(fd, champ[i], av[i]);
-      champ[i].filename = av[i];
-      if (champ[i].error == 1)
-	{
-	  my_putstr("Error, program aborded\n");
-	  return (1);
-	}
+      if (check_champ(champ[i]) == 1)
+	return (1);
       i++;
     }
 }
