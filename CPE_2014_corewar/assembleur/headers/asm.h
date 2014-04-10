@@ -1,15 +1,11 @@
 /*
-** corewar.h for corewar in /home/mancel_a/rendu/CPE_2014_corewar/assembleur/headers
-**
+** asm.h for corewar in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/headers
+** 
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-**
-** Started on  Wed Mar 26 16:29:10 2014 mancel_a
-<<<<<<< HEAD
-** Last update Wed Apr  9 14:59:23 2014 mancel_a
-=======
-** Last update Wed Apr  9 12:12:46 2014 Valerian Polizzi
->>>>>>> 538eece759a60e7997564436b9a7a109fe821652
+** 
+** Started on  Thu Apr 10 15:56:51 2014 mancel_a
+** Last update Thu Apr 10 15:56:52 2014 mancel_a
 */
 
 #ifndef ASM_H_

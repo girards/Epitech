@@ -1,11 +1,11 @@
 /*
-1;3201;0c** list.h for list in /home/polizz_v/rendu/libmy
-**
-** Made by valeri
-** Login   <polizz_v@epitech.net>
-**
-** Started on  Mon Mar 31 14:50:32 2014 valeri
-** Last update Wed Apr  9 14:46:10 2014 mancel_a
+** list.h for list in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/headers
+** 
+** Made by mancel_a
+** Login   <mancel_a@epitech.net>
+** 
+** Started on  Thu Apr 10 15:57:18 2014 mancel_a
+** Last update Thu Apr 10 15:57:19 2014 mancel_a
 */
 
 #ifndef LIST_H_

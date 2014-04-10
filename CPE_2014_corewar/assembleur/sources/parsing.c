@@ -1,11 +1,11 @@
 /*
-** parsing.c for girard_s in /home/girard_s/rendu/Epitech/CPE_2014_corewar/assembleur/sources
+** parsing.c for parsing in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/sources
 ** 
-** Made by Nicolas Girardot
-** Login   <girard_s@epitech.net>
+** Made by mancel_a
+** Login   <mancel_a@epitech.net>
 ** 
-** Started on  Thu Apr 10 16:54:26 2014 Nicolas Girardot
-** Last update Thu Apr 10 16:54:31 2014 Nicolas Girardot
+** Started on  Thu Apr 10 15:59:11 2014 mancel_a
+** Last update Thu Apr 10 15:59:13 2014 mancel_a
 */
 
 #include <stdlib.h>
