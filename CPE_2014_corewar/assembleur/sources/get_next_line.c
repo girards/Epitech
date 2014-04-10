@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Apr  9 14:22:46 2014 mancel_a
-** Last update Wed Apr  9 14:23:18 2014 mancel_a
+** Last update Thu Apr 10 15:36:29 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -41,10 +41,10 @@ char*	get_next_line(const int fd)
   static char	buf[4096];
   static int	it = -1;
   static int	bytes_read = 0;
-  
+
   char	*rtn;
   int	rtn_it;
-  
+
   if (it == -1 || it == bytes_read)
     bytes_read = read_to_buf(fd, buf, &it);
   rtn = malloc(4096);

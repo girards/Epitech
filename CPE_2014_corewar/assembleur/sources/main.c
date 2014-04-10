@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Wed Apr  9 15:24:01 2014 mancel_a
+** Last update Thu Apr 10 15:35:00 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -23,7 +23,7 @@
 int     check_content(t_champ champ)
 {
   int   errors;
-  
+ 
   errors = 0;
   if (strcmp("noname", champ.name) == 0)
     {

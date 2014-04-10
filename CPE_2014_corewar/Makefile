@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Wed Apr  9 14:55:08 2014 mancel_a
+## Last update Thu Apr 10 15:39:21 2014 mancel_a
 ## Last update Fri Apr  4 14:06:04 2014 valeri
 ##
 
@@ -18,8 +18,6 @@ SRC	=	assembleur/sources/asm.c \
 		assembleur/sources/basics.c \
 		assembleur/sources/my.c	\
 		assembleur/sources/get_next_line.c \
-		assembleur/sources/my_printf.c\
-		assembleur/sources/my_printf_func.c\
 		assembleur/sources/verif.c\
 		assembleur/sources/parsing.c\
 		assembleur/sources/test_system.c\

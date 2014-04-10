@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Apr  9 15:16:45 2014 mancel_a
-** Last update Wed Apr  9 15:24:48 2014 mancel_a
+** Last update Thu Apr 10 15:25:38 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -25,12 +25,12 @@ t_cmd		parse_cmd(char *cmd);
 t_champ		init_champ()
 {
   t_champ	tmp;
-
+  
   tmp.filename = "filename";
   tmp.name = "noname";
   tmp.comment = "nocomment";
   tmp.command = "nocommand";
-  return(tmp);
+  return (tmp);
 }
 
 char	*my_strcat(char *dest, char *src);
