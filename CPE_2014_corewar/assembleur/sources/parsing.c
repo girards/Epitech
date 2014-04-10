@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Thu Apr 10 15:59:11 2014 mancel_a
-** Last update Fri Apr 11 00:48:21 2014 Valerian Polizzi
+** Last update Fri Apr 11 01:58:32 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
@@ -42,14 +42,6 @@ char	*get_go(char *line, int length)
     }
   final_name[++i - tmp] = '\0';
   return (final_name);
-}
-
-t_cmd		parse_cmd(char *cmd_line)
-{
-  t_cmd		tmp;
-  int		i;
-
-  return (tmp);
 }
 
 t_champ		parse(t_champ champs)

@@ -1,11 +1,11 @@
 /*
 ** superparse.c for parsecoper in /home/girard_s/rendu/parsing
-** 
+**
 ** Made by Nicolas Girardot
 ** Login   <girard_s@epitech.net>
-** 
+**
 ** Started on  Fri Apr 11 15:03:08 2014 Nicolas Girardot
-** Last update Sat Apr 12 15:46:07 2014 Nicolas Girardot
+** Last update Fri Apr 11 01:58:55 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ char	*get_str(int i, int j, char *str)
   j = j;
   temp = 0;
   res = malloc(i - j + 1);
-  if (str[i - 1] == ':')
+  if (str[i - 2] == ':')
     {
       while (temp != off)
 	{
@@ -63,7 +63,6 @@ void	*nparse(char *str)
 
   j = 0;
   i = 0;
-  printf("%s\n", str);
   while (str[i] != '\0')
     {
       while (str[i] != '\n' && str[i] != ' ')
@@ -71,7 +70,6 @@ void	*nparse(char *str)
 	  i++;
 	}
       i++;
-      printf("%d\n", i);
       get_str(i, j, str);
       j = i;
     }
