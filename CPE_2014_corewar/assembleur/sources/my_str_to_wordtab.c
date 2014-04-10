@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Thu Apr  3 08:48:39 2014 mancel_a
-** Last update Wed Apr  9 14:25:35 2014 mancel_a
+** Last update Thu Apr 10 11:27:56 2014 Nicolas Girardot
 */
 
 #include <stdlib.h>
@@ -24,7 +24,7 @@ char	**my_str_to_wordtab(char *str)
     {
       j = 0;
       tab[i] = malloc(my_strlen(str) * sizeof(*tab[i]));
-      while (str[k] != '\n' && str[k] != 0)
+      while ((str[k] != ' ' && str[k] != ',') && str[k] != 0)
 	tab[i][j++] = str[k++];
       tab[i][j] = 0;
       if (str[k] != 0)
