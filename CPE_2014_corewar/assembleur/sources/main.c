@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Thu Apr 10 18:19:05 2014 Valerian Polizzi
+** Last update Fri Apr 11 00:37:52 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -102,7 +102,7 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
 
   i = 0;
   cmd = malloc(4096);
-  tmp = init_champ();
+  tmp = init_champ(filename);
   while ((line = get_next_line(fd)) != NULL)
     {
       if (is_name(line) == 0)
@@ -118,11 +118,14 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
 	    cmd = cat_str(cmd, get_next_word(line));
         }
     }
-  tmp.command = cmd;
-  tmp = parse(tmp);
   if (check_content(tmp) == 0)
-    return (tmp);
-  return (init_champ(tmp));
+    {
+      tmp.command = cmd;
+      tmp = parse(tmp);
+    }
+  else
+    tmp.error = 1;
+  return (tmp);
 }
 
 int             main(int ac, char **av)
@@ -136,14 +139,14 @@ int             main(int ac, char **av)
   while (i != ac && is_champ(av[i]) == 0)
     {
       fd = xopen(av[i], O_RDONLY);
-      champ[i] = init_champ();
+      champ[i] = init_champ(av[i]);
       champ[i] = fill_champ(fd, champ[i], av[i]);
       champ[i].filename = av[i];
-      if (check_content(champ[i]) == 1)
+      if (champ[i].error == 1)
 	{
-	  printf("PROGRAM ABORDED");
+	  my_putstr("Error, program aborded\n");
 	  return (1);
 	}
-	  i++;
+      i++;
     }
 }

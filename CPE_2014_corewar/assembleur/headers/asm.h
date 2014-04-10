@@ -1,11 +1,11 @@
 /*
 ** asm.h for corewar in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/headers
-** 
+**
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-** 
+**
 ** Started on  Thu Apr 10 15:56:51 2014 mancel_a
-** Last update Thu Apr 10 15:56:52 2014 mancel_a
+** Last update Fri Apr 11 00:17:36 2014 Valerian Polizzi
 */
 
 #ifndef ASM_H_
@@ -23,6 +23,7 @@ typedef struct	s_champ
   char		*name;
   char		*comment;
   char		*command;
+  int		error;
   t_cmd		cmd;
 }		t_champ;
 

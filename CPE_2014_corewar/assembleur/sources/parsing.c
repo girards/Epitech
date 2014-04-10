@@ -1,11 +1,11 @@
 /*
 ** parsing.c for parsing in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/sources
-** 
+**
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-** 
+**
 ** Started on  Thu Apr 10 15:59:11 2014 mancel_a
-** Last update Thu Apr 10 15:59:13 2014 mancel_a
+** Last update Fri Apr 11 00:34:48 2014 Valerian Polizzi
 */
 
 #include <stdlib.h>
@@ -60,5 +60,6 @@ t_champ		parse(t_champ champs)
   tmp.comment = get_go(champs.comment, go_length(champs.comment));
   tmp.command = champs.command;
   tmp.filename = champs.filename;
+  tmp.error = 0;
   return (tmp);
 }
