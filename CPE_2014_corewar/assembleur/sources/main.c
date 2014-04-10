@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Thu Apr 10 16:26:41 2014 Valerian Polizzi
+** Last update Thu Apr 10 16:42:45 2014 Valerian Polizzi
 */
 
 #include <unistd.h>
@@ -111,7 +111,6 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
 	    cmd = cat_str(cmd, get_next_word(line));
         }
     }
-  my_putstr(cmd);
   tmp.command = cmd;
   tmp = parse(tmp);
   tmp.filename = filename;
@@ -131,6 +130,7 @@ int             main(int ac, char **av)
       fd = xopen(av[i], O_RDONLY);
       champ[i] = init_champ();
       champ[i] = fill_champ(fd, champ[i], av[i]);
-      i++;
+      printf("%s ", champ[i].command);
+ i++;
     }
 }
