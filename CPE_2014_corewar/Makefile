@@ -5,7 +5,7 @@
 ## Login   <girard_s@epitech.net>
 ## 
 ## Started on  Sat Mar  1 10:43:43 2014 Nicolas Girardot
-## Last update Thu Apr 10 15:39:21 2014 mancel_a
+## Last update Sat Apr 12 15:36:46 2014 Nicolas Girardot
 ## Last update Fri Apr  4 14:06:04 2014 valeri
 ##
 
@@ -23,6 +23,7 @@ SRC	=	assembleur/sources/asm.c \
 		assembleur/sources/test_system.c\
 		assembleur/sources/list_d/my_put_in_list_first.c \
 		assembleur/sources/list_d/my_put_in_list_last.c\
+		parsing/superparse.c\
 
 OBJ	=	$(SRC:.c=.o)
 

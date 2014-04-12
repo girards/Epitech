@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Fri Apr 11 01:03:47 2014 Valerian Polizzi
+** Last update Sat Apr 12 15:45:04 2014 Nicolas Girardot
 */
 
 #include <unistd.h>
@@ -153,7 +153,7 @@ int             main(int ac, char **av)
       champ[i] = fill_champ(fd, champ[i], av[i]);
       if (check_champ(champ[i]) == 1)
 	return (1);
-      nparse(champ[i].cmd);
+      nparse(champ[i].command);
       i++;
     }
 }
