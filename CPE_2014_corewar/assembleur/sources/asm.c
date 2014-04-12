@@ -1,15 +1,11 @@
 /*
-** asm.c for asm in /home/mancel_a/Epitech/Epitech/CPE_2014_corewar/assembleur/sources
-**
+** asm.c for asm in /home/mancel_a/github/Girard_s/Epitech/CPE_2014_corewar/assembleur/sources
+** 
 ** Made by mancel_a
 ** Login   <mancel_a@epitech.net>
-**
-** Started on  Wed Apr  9 15:16:45 2014 mancel_a
-<<<<<<< HEAD
-** Last update Fri Apr 11 00:36:27 2014 Valerian Polizzi
-=======
-** Last update Thu Apr 10 15:58:39 2014 mancel_a
->>>>>>> 1d60c20ce812f528bb4c6fb7cf16427abfe86a0b
+** 
+** Started on  Sat Apr 12 18:51:14 2014 mancel_a
+** Last update Sat Apr 12 18:51:26 2014 mancel_a
 */
 
 #include <unistd.h>

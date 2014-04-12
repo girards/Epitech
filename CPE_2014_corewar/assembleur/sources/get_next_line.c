@@ -5,19 +5,20 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Wed Apr  9 14:22:46 2014 mancel_a
-** Last update Thu Apr 10 15:36:29 2014 mancel_a
+** Last update Sat Apr 12 19:08:14 2014 mancel_a
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include "../headers/get_next_line.h"
+#include "../headers/xfonc.h"
 
 char*	add_data_chunk(char *data, int newsize)
 {
-  char*rtn;
+  char	*rtn;
   int	it;
 
-  rtn = malloc(newsize);
+  rtn = xmalloc(newsize);
   if (rtn == NULL)
     return (NULL);
   it = 0;
@@ -47,7 +48,7 @@ char*	get_next_line(const int fd)
 
   if (it == -1 || it == bytes_read)
     bytes_read = read_to_buf(fd, buf, &it);
-  rtn = malloc(4096);
+  rtn = xmalloc(4096);
   if (rtn == NULL || bytes_read == 0)
     return (NULL);
   rtn_it = 0;

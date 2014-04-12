@@ -5,11 +5,12 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Thu Apr 10 15:59:11 2014 mancel_a
-** Last update Fri Apr 11 01:58:32 2014 Valerian Polizzi
+** Last update Sat Apr 12 19:20:41 2014 mancel_a
 */
 
 #include <stdlib.h>
 #include "../headers/asm.h"
+#include "../headers/xfonc.h"
 
 int	go_length(char *line)
 {
@@ -32,7 +33,7 @@ char	*get_go(char *line, int length)
   char	*final_name;
 
   i = 0;
-  final_name = malloc((length - 1) * sizeof(char));
+  final_name = xmalloc((length - 1) * sizeof(char));
   while (line[i++] != '\"');
   tmp = i;
   while (line[i] != '\"')

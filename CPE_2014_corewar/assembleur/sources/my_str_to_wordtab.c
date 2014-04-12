@@ -5,10 +5,11 @@
 ** Login   <mancel_a@epitech.net>
 ** 
 ** Started on  Thu Apr  3 08:48:39 2014 mancel_a
-** Last update Thu Apr 10 11:27:56 2014 Nicolas Girardot
+** Last update Sat Apr 12 19:19:51 2014 mancel_a
 */
 
 #include <stdlib.h>
+#include "../headers/xfonc.h"
 
 char	**my_str_to_wordtab(char *str)
 {
@@ -19,11 +20,11 @@ char	**my_str_to_wordtab(char *str)
 
   i = 0;
   k = 0;
-  tab = malloc(my_strlen(str) * sizeof(*tab));
+  tab = xmalloc(my_strlen(str) * sizeof(*tab));
   while (str[k])
     {
       j = 0;
-      tab[i] = malloc(my_strlen(str) * sizeof(*tab[i]));
+      tab[i] = xmalloc(my_strlen(str) * sizeof(*tab[i]));
       while ((str[k] != ' ' && str[k] != ',') && str[k] != 0)
 	tab[i][j++] = str[k++];
       tab[i][j] = 0;

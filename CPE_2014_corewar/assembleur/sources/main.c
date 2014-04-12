@@ -5,7 +5,7 @@
 ** Login   <mancel_a@epitech.net>
 **
 ** Started on  Wed Apr  9 14:01:52 2014 mancel_a
-** Last update Sat Apr 12 15:45:04 2014 Nicolas Girardot
+** Last update Sat Apr 12 19:18:10 2014 mancel_a
 */
 
 #include <unistd.h>
@@ -19,34 +19,7 @@
 #include "../headers/my.h"
 #include "../headers/get_next_line.h"
 #include "../headers/list.h"
-
-
-int	check_name(t_champ champ)
-{
-  if (strcmp("noname", champ.name) == 0)
-    {
-      printf("%s has no '.name' field\n", champ.filename);
-      return (1);
-    }
-  return (0);
-}
-
-int	check_comment(t_champ champ)
-{
-  if (strcmp("nocomment", champ.comment) == 0)
-    {
-      printf("%s has no '.comment' field\n", champ.filename);
-      return (1);
-    }
-  return (0);
-}
-
-int     check_content(t_champ champ)
-{
-  if (check_name(champ) == 0 && check_comment(champ) == 0)
-    return (0);
-  return (1);
-}
+#include "../headers/xfonc.h"
 
 char            *get_next_word(char *line)
 {
@@ -58,7 +31,7 @@ char            *get_next_word(char *line)
   x = 0;
   j = 0;
   i = 0;
-  elem = malloc(1080);
+  elem = xmalloc(1080);
   while (line[i] != '\0')
     {
       while ((is_separator(line[i]) == 0))
@@ -93,6 +66,18 @@ char            *get_next_word(char *line)
   return (elem);
 }
 
+t_champ		parse_cmd(t_champ tmp, char *cmd)
+{
+  if (check_content(tmp) == 0)
+    {
+      tmp.command = cmd;
+      tmp = parse(tmp);
+    }
+  else
+     tmp.error = 1;
+  return (tmp);
+}
+
 t_champ         fill_champ(int fd, t_champ champ, char *filename)
 {
   t_champ       tmp;
@@ -101,7 +86,7 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
   int           i;
 
   i = 0;
-  cmd = malloc(4096);
+  cmd = xmalloc(4096);
   tmp = init_champ(filename);
   while ((line = get_next_line(fd)) != NULL)
     {
@@ -118,13 +103,7 @@ t_champ         fill_champ(int fd, t_champ champ, char *filename)
 	    cmd = cat_str(cmd, get_next_word(line));
         }
     }
-  if (check_content(tmp) == 0)
-    {
-      tmp.command = cmd;
-      tmp = parse(tmp);
-    }
-  else
-    tmp.error = 1;
+  tmp = parse_cmd(tmp, cmd);
   return (tmp);
 }
 
